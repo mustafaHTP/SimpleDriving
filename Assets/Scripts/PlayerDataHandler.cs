@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerDataHandler : MonoBehaviour
@@ -8,7 +9,6 @@ public class PlayerDataHandler : MonoBehaviour
 
     private const int DefaultHighScore = 0;
     private const int DefaultEnergyAmount = 0;
-    private const string DefaultEnergyReady = "";
 
     public void ResetHighScore()
     {
@@ -29,7 +29,7 @@ public class PlayerDataHandler : MonoBehaviour
 
         if (PlayerPrefs.HasKey(EnergyReadyKey))
         {
-            PlayerPrefs.SetString(EnergyReadyKey, DefaultEnergyReady);
+            PlayerPrefs.SetString(EnergyReadyKey, DateTime.Now.ToString());
             PlayerPrefs.Save();
         }
     }

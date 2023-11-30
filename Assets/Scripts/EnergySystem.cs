@@ -27,9 +27,27 @@ public class EnergySystem : MonoBehaviour
             return PlayerPrefs.GetInt(EnergyKey, _maxEnergy);
         }
     }
+    public DateTime EnergyReadyTime
+    {
+        get
+        {
+            string energyReadyAsString = PlayerPrefs.GetString(EnergyReadyKey);
+            return DateTime.Parse(energyReadyAsString);
+        }
+    }
 
     private void Awake()
     {
+        OnApplicationFocus(true);
+    }
+
+    private void OnApplicationFocus(bool focus)
+    {
+        if (!focus)
+        {
+            CancelInvoke(nameof(FillEnergy));
+        }
+
         _energy = PlayerPrefs.GetInt(EnergyKey, _maxEnergy);
         if (_energy == MinEnergy)
         {
@@ -41,6 +59,11 @@ public class EnergySystem : MonoBehaviour
             if (DateTime.Now > energyReady)
             {
                 FillEnergy();
+            }
+            else
+            {
+                float waitTimeToRecharge = (energyReady - DateTime.Now).Seconds;
+                Invoke(nameof(FillEnergy), waitTimeToRecharge);
             }
         }
     }
@@ -69,6 +92,13 @@ public class EnergySystem : MonoBehaviour
 
     public void PlayAgain()
     {
+        int waitTimeToRecharge = (EnergyReadyTime - DateTime.Now).Seconds;
+        if(waitTimeToRecharge > 0)
+        {
+            return;
+        }
+
+        _energy = Energy;
         if (_energy > MinEnergy)
         {
             ConsumeEnergy();
@@ -79,5 +109,8 @@ public class EnergySystem : MonoBehaviour
         {
             SetNextEnergyReadyDate();
         }
+
+        Debug.Log("Energy: " + Energy);
+        Debug.Log("Energy Ready Time: " + EnergyReadyTime);
     }
 }
