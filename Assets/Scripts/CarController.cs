@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Car : MonoBehaviour
+public class CarController : MonoBehaviour
 {
     [SerializeField] private float _speed;
     [SerializeField] private float _speedGainOverTime;
@@ -25,6 +25,9 @@ public class Car : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Obstacle"))
         {
+            Debug.Log("CRASH !!");
+            Debug.Log("Collide with: " + other.gameObject.name);
+
             SceneManager.LoadScene(0);
         }
     }

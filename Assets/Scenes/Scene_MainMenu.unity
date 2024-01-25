@@ -380,7 +380,7 @@ GameObject:
   - component: {fileID: 331528462}
   - component: {fileID: 331528461}
   m_Layer: 0
-  m_Name: Virtual Camera
+  m_Name: MainMenuCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1238,7 +1238,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2011562176}
   m_Layer: 0
-  m_Name: HighView
+  m_Name: HighPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2284,10 +2284,10 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1554409420}
+  - {fileID: 331528462}
   - {fileID: 1170497674}
   - {fileID: 37182343}
   - {fileID: 517364752}
   - {fileID: 7708557441526152822}
   - {fileID: 288988389}
   - {fileID: 2011562176}
-  - {fileID: 331528462}
