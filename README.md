@@ -19,7 +19,7 @@ Game project that was made in GameDevTV Mobile Course.
 
 ## Theme
 
-Your gas pedal has malfuntion, your car keeps getting faster and faster. You are trying to reach repair shop while avoiding obstacles.
+Your gas pedal has malfunction, your car keeps getting faster and faster. You are trying to reach repair shop while avoiding obstacles.
 
 Will you be able to escape the path of death?
 
