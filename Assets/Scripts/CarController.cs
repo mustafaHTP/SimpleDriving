@@ -25,9 +25,6 @@ public class CarController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Obstacle"))
         {
-            Debug.Log("CRASH !!");
-            Debug.Log("Collide with: " + other.gameObject.name);
-
             SceneManager.LoadScene(0);
         }
     }
